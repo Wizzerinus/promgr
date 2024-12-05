@@ -82,7 +82,8 @@ class ProjectMgrData:
     def _load_project(self, path, category, name):
         tpl_folder = self.gen_cat_path(category)
         env = {"PM_EDITOR": self.config.apps.editor, "NAME": name}
-        subprocess.Popen([tpl_folder / "launch"], env=dict(os.environ, **env), start_new_session=True, cwd=path)
+        subprocess.Popen(["systemd-run", "--user", "--scope", tpl_folder / "launch"],
+                         env=dict(os.environ, **env), start_new_session=True, cwd=path)
 
 
 def load_data():
