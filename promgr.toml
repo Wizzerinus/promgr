@@ -1,0 +1,8 @@
+[paths]
+
+templates = "/projects/templates"
+work = "/projects/work"
+
+[apps]
+
+editor = "kitty helix"

@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+# This script will be launched whenever a project of this type is created.
+# The script does not have to be a bash script, but it does have to be executable.
+# You can use the following environmental variables:
+
+# $TPL - path to the template folder
+# $PROJECT - path to the project folder
+# $CATEGORY - category name
+# $NAME - project name
+# It is encouraged to use "$TPL/files" to copy those files under $PROJECT

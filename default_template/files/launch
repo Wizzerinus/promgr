@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+# This script will be launched whenever a project of this type is launched.
+# cwd of the script will be = the project folder.
+# The script does not have to be a bash script, but it does have to be executable.
+# You can use the following environmental variables:
+
+# $PM_EDITOR (may contain spaces, i.e.: 'kitty helix') - default editor
+# $NAME - project name

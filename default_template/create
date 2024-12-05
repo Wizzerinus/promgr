@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+cp "$TPL/files/"* "$PROJECT"
+mkdir "$PROJECT/files"
