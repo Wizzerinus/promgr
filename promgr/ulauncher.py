@@ -27,6 +27,7 @@ class ItemEnterEventListener(EventListener):
     data: ProjectMgrData
 
     def __init__(self, data):
+        self.data = data
         self.action_callbacks = {
             "cp": self.create_project,
             "op": self.open_project,
@@ -61,7 +62,7 @@ class ItemEnterEventListener(EventListener):
     def on_event(self, event, extension: ULauncherExtension):
         action, *args = event.get_data()
         logging.info("processing event: %s(%s)", action, args)
-        self.action_callbacks[action](extension.data, *args)
+        self.action_callbacks[action](*args)
 
 
 @dataclasses.dataclass
