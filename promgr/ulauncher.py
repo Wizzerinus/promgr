@@ -102,7 +102,9 @@ class KeywordQueryEventListener(EventListener):
             name = name.lower()
             return [
                 ExtensionResultItem(
-                    icon="images/create-project.png", name=cat, on_enter=SetUserQueryAction(f"{self.keyword} c {cat} ")
+                    icon="images/create-project.png",
+                    name=cat,
+                    on_enter=SetUserQueryAction(f"{self.keyword} new {cat} "),
                 )
                 for cat in sorted(cats)
                 if name in cat.lower()
@@ -131,7 +133,7 @@ class KeywordQueryEventListener(EventListener):
             cats = self.data.get_categories()
             return [
                 ExtensionResultItem(
-                    icon="images/open-project.png", name=cat, on_enter=SetUserQueryAction(f"{self.keyword} o {cat} ")
+                    icon="images/open-project.png", name=cat, on_enter=SetUserQueryAction(f"{self.keyword} open {cat} ")
                 )
                 for cat in cats
                 if name in cat.lower()
@@ -157,7 +159,7 @@ class KeywordQueryEventListener(EventListener):
         if category is None or category not in cats:
             return [
                 ExtensionResultItem(
-                    icon="images/remove-project.png", name=cat, on_enter=SetUserQueryAction(f"{self.keyword} r {cat} ")
+                    icon="images/remove-project.png", name=cat, on_enter=SetUserQueryAction(f"{self.keyword} rm {cat} ")
                 )
                 for cat in cats
                 if name in cat.lower()
@@ -200,7 +202,9 @@ class KeywordQueryEventListener(EventListener):
             ]
         return [
             ExtensionResultItem(
-                icon="images/copy-template.png", name=cat, on_enter=SetUserQueryAction(f"{self.keyword} d {cat} ")
+                icon="images/copy-template.png",
+                name=cat,
+                on_enter=SetUserQueryAction(f"{self.keyword} tmp-copy {cat} "),
             )
             for cat in cats
             if old_name in cat.lower()
