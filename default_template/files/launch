@@ -7,3 +7,5 @@
 
 # $PM_EDITOR (may contain spaces, i.e.: 'kitty helix') - default editor
 # $NAME - project name
+# $TPL - path to the template folder
+# $CATEGORY - the template name
