@@ -16,7 +16,8 @@ class ProjectData:
 @dataclasses.dataclass
 class ProjectCache:
     projects: dict[str, ProjectData] = dataclasses.field(default_factory=dict)
-    
+    backups: dict[str, ProjectData] = dataclasses.field(default_factory=dict)
+
     def __post_init__(self):
         for p, d in self.projects.items():
             if isinstance(d, dict):
@@ -42,6 +43,15 @@ class ProjectCache:
             return [p.name for p in self.projects.values()]
 
         return [p.name for p in self.projects.values() if p.category == category]
+
+    def remove_project(self, name: str):
+        if name not in self.projects:
+            return False
+        self.backups[name] = self.projects[name]
+        del self.projects[name]
+
+    def save(self):
+        save_cache(self)
 
 
 def load_cache() -> ProjectCache:
